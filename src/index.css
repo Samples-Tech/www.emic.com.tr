@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+.container { 
+  @apply max-w-7xl mx-auto px-4; 
+} 
+
+.card { 
+  @apply rounded-lg shadow-sm p-6 bg-white border border-gray-100; 
+} 
+
+.btn { 
+  @apply inline-flex items-center gap-2 rounded-md px-4 py-2 font-medium transition-all duration-200; 
+} 
+
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700 shadow-sm;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+}
+
+.btn-outline {
+  @apply border border-gray-300 text-gray-700 hover:bg-gray-50;
+}
+
+.ipt { 
+  @apply border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent; 
+} 
+
+.hero-gradient {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+}
+
+.service-card {
+  @apply bg-white rounded-lg shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow duration-300;
+}
+
+.feature-icon {
+  @apply w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-4;
+}
+
+.section-title {
+  @apply text-3xl font-bold text-gray-900 mb-4;
+}
+
+.section-subtitle {
+  @apply text-lg text-gray-600 mb-8;
+}
+
+.stats-card {
+  @apply text-center p-6;
+}
+
+.stats-number {
+  @apply text-4xl font-bold text-blue-600 mb-2;
+}
+
+.stats-label {
+  @apply text-gray-600 font-medium;
+}
+
+/* Hero Section Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient Background */
+.hero-gradient-modern {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #1d4ed8 100%);
+}
+
+/* Certificate Cards */
+.certificate-card {
+  @apply bg-white rounded-lg shadow-sm border border-gray-100 p-6 hover:shadow-md transition-all duration-300;
+}
+
+.certificate-image {
+  @apply relative overflow-hidden;
+}
+
+/* Scrolling Animation for References */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
