@@ -49,52 +49,9 @@ const resources = {
         servicesSubtitle: 'TSE, TÜRKAK akrediteli laboratuvarımızda sunduğumuz profesyonel hizmetler',
         whyEmicTitle: 'Neden EMIC?',
         whyEmicDescription: 'Endüstriyel muayene alanında uzun yıllara dayanan deneyimimiz ve teknolojik altyapımız ile güvenilir hizmet sunuyoruz.',
-        accreditedLab: 'Akrediteli Laboratuvar',
-        accreditedLabDesc: 'TÜRKAK akreditasyonlu laboratuvarımız ile güvenilir sonuçlar',
-        expertTeam: 'Uzman Kadro',
-        expertTeamDesc: 'Sertifikalı ve deneyimli mühendis kadromuz',
-        modernEquipment: 'Modern Ekipman',
-        modernEquipmentDesc: 'Son teknoloji muayene ve test ekipmanları',
-        fastService: 'Hızlı Hizmet',
-        fastServiceDesc: 'Kısa sürede güvenilir sonuçlar',
-        ctaTitle: 'Projeleriniz İçin Hemen İletişime Geçin',
-        ctaDescription: 'Endüstriyel muayene ve test hizmetleriniz için uzman ekibimizden ücretsiz teklif alın.',
         yearsExperience: 'Yıl Deneyim',
         projects: 'Proje',
-        customers: 'Müşteri',
-        languageTitle: 'Dil Seçimi',
-        languageSubtitle: 'Size en uygun dilde hizmet almak için tercih ettiğiniz dili seçin',
-        languageNote: 'Tüm içeriklerimiz profesyonel çeviri ile hazırlanmıştır',
-        multiLanguageSupport: 'Çoklu Dil Desteği',
-        professionalTranslation: 'Profesyonel Çeviri'
-      },
-      // Regions
-      regions: {
-        title: 'Hizmet Bölgelerimiz',
-        subtitle: 'Türkiye genelinde geniş hizmet ağımız ile endüstriyel muayene ve test hizmetlerinizi en yakın bölgeden profesyonel ekibimizle sunuyoruz.',
-        cities: 'Hizmet Verilen Şehirler',
-        services: 'Sunulan Hizmetler',
-        more: 'daha',
-        moreServices: 'hizmet daha',
-        details: 'Bölge Detayları',
-        ctaTitle: 'Bölgenizde Hizmet Alın',
-        ctaDescription: 'Hangi bölgede olursanız olun, uzman ekibimiz size en yakın noktadan hızlı ve güvenilir hizmet sunmaya hazır.',
-        contactNow: 'Hemen İletişime Geçin',
-        viewAllServices: 'Tüm Hizmetleri Görün'
-      },
-      // Regions
-      regions: {
-        title: 'Hizmet Bölgelerimiz',
-        subtitle: 'Türkiye genelinde geniş hizmet ağımız ile endüstriyel muayene ve test hizmetlerinizi en yakın bölgeden profesyonel ekibimizle sunuyoruz.',
-        cities: 'Hizmet Verilen Şehirler',
-        services: 'Sunulan Hizmetler',
-        more: 'daha',
-        moreServices: 'hizmet daha',
-        details: 'Bölge Detayları',
-        ctaTitle: 'Bölgenizde Hizmet Alın',
-        ctaDescription: 'Hangi bölgede olursanız olun, uzman ekibimiz size en yakın noktadan hızlı ve güvenilir hizmet sunmaya hazır.',
-        contactNow: 'Hemen İletişime Geçin',
-        viewAllServices: 'Tüm Hizmetleri Görün'
+        customers: 'Müşteri'
       },
       // References
       references: {
@@ -106,73 +63,26 @@ const resources = {
         experience: 'Yıllık Deneyim',
         ctaText: 'Siz de güvenilir hizmetlerimizden yararlanmak ister misiniz?'
       },
-      // Services
-      services: {
-        title: 'Hizmetlerimiz',
-        subtitle: 'TSE ve TÜRKAK akrediteli laboratuvarımızda, endüstriyel muayene ve test alanında 25+ yıllık deneyimimizle profesyonel hizmet sunuyoruz.',
-        ndt: {
-          title: 'Tahribatsız Muayene (NDT)',
-          description: 'ASNT SNT-TC-1A ve EN ISO 9712 standartlarına uygun muayene hizmetleri',
-          ut: 'Ultrasonik Test (UT)',
-          rt: 'Radyografik Test (RT)',
-          pt: 'Sıvı Penetrant Test (PT)',
-          mt: 'Manyetik Parçacık Testi (MT)',
-          vt: 'Görsel Muayene (VT)',
-          et: 'Eddy Current Test (ET)'
-        },
-        welding: {
-          title: 'Kaynak Muayenesi',
-          description: 'EN ISO 3834 ve ASME standartlarına uygun kaynak kalite kontrolü',
-          wps: 'Kaynak Prosedürü Onayı (WPS/WPQR)',
-          welder: 'Kaynakçı Yeterlilik Testleri',
-          inspector: 'Kaynak Kontrolörü Sertifikasyonu',
-          production: 'Üretim Muayenesi ve Kontrolü',
-          analysis: 'Kaynak Hatası Analizi'
-        },
-        pressure: {
-          title: 'Basınçlı Kap Muayenesi',
-          description: 'Basınçlı Ekipman Yönetmeliği kapsamında muayene hizmetleri',
-          initial: 'İlk Muayene ve Testler',
-          periodic: 'Periyodik Muayene (1-3-6 yıl)',
-          extraordinary: 'Olağanüstü Muayene ve Onarım',
-          safety: 'Emniyet Raporu Hazırlama',
-          hydrostatic: 'Hidrostatik Basınç Testi'
-        },
-        lifting: {
-          title: 'Kaldırma Araçları Muayenesi',
-          description: 'İş Sağlığı ve Güvenliği mevzuatı kapsamında kaldırma araçları kontrolü',
-          crane: 'Vinç ve Kren Muayenesi',
-          forklift: 'Forklift Muayenesi',
-          rope: 'Halat ve Zincir Kontrolü',
-          accessories: 'Kaldırma Aksesuarları',
-          reports: 'Periyodik Kontrol Raporları'
-        },
-        material: {
-          title: 'Malzeme Testleri',
-          description: 'Mekanik ve kimyasal malzeme özelliklerinin belirlenmesi',
-          tensile: 'Çekme Testi',
-          impact: 'Darbe Testi (Charpy/Izod)',
-          hardness: 'Sertlik Ölçümü',
-          chemical: 'Kimyasal Analiz',
-          metallography: 'Metalografi İncelemesi'
-        }
+      // Regions
+      regions: {
+        title: 'Hizmet Bölgelerimiz',
+        subtitle: 'Türkiye genelinde geniş hizmet ağımız ile endüstriyel muayene ve test hizmetlerinizi en yakın bölgeden profesyonel ekibimizle sunuyoruz.',
+        cities: 'Hizmet Verilen Şehirler',
+        services: 'Sunulan Hizmetler',
+        more: 'daha',
+        moreServices: 'hizmet daha',
+        details: 'Bölge Detayları',
+        ctaTitle: 'Bölgenizde Hizmet Alın',
+        ctaDescription: 'Hangi bölgede olursanız olun, uzman ekibimiz size en yakın noktadan hızlı ve güvenilir hizmet sunmaya hazır.',
+        contactNow: 'Hemen İletişime Geçin',
+        viewAllServices: 'Tüm Hizmetleri Görün'
       },
       // Footer
       footer: {
         quickLinks: 'Hızlı Bağlantılar',
         privacy: 'Gizlilik Politikası',
         terms: 'Kullanım Şartları',
-        rights: 'Tüm hakları saklıdır.',
-        description: 'Endüstriyel muayene ve test hizmetlerinde 25+ yıllık deneyim ile güvenilir çözümler sunuyoruz.',
-        services: 'Hizmetlerimiz',
-        corporate: 'Kurumsal',
-        aboutUs: 'Hakkımızda',
-        certificates: 'Sertifikalarımız',
-        quality: 'Kalite Politikası',
-        careers: 'Kariyer',
-        contact: 'İletişim',
-        address: 'Atatürk Organize Sanayi Bölgesi 10003 Sokak No:5 İzmir',
-        rights: 'EMIC Muayene ve Test Hizmetleri. Tüm hakları saklıdır.'
+        rights: 'Tüm hakları saklıdır.'
       }
     }
   },
@@ -221,52 +131,9 @@ const resources = {
         servicesSubtitle: 'Professional services offered in our TSE and TÜRKAK accredited laboratory',
         whyEmicTitle: 'Why EMIC?',
         whyEmicDescription: 'We provide reliable services with our years of experience in industrial inspection and technological infrastructure.',
-        accreditedLab: 'Accredited Laboratory',
-        accreditedLabDesc: 'Reliable results with our TÜRKAK accredited laboratory',
-        expertTeam: 'Expert Team',
-        expertTeamDesc: 'Our certified and experienced engineering staff',
-        modernEquipment: 'Modern Equipment',
-        modernEquipmentDesc: 'State-of-the-art inspection and testing equipment',
-        fastService: 'Fast Service',
-        fastServiceDesc: 'Reliable results in a short time',
-        ctaTitle: 'Contact Us Immediately for Your Projects',
-        ctaDescription: 'Get a free quote from our expert team for your industrial inspection and testing services.',
         yearsExperience: 'Years Experience',
         projects: 'Projects',
-        customers: 'Customers',
-        languageTitle: 'Language Selection',
-        languageSubtitle: 'Choose your preferred language to receive service in the most suitable language for you',
-        languageNote: 'All our content is prepared with professional translation',
-        multiLanguageSupport: 'Multi-Language Support',
-        professionalTranslation: 'Professional Translation'
-      },
-      // Regions
-      regions: {
-        title: 'Our Service Regions',
-        subtitle: 'We provide your industrial inspection and testing services from the nearest region with our professional team through our wide service network throughout Turkey.',
-        cities: 'Cities Served',
-        services: 'Services Offered',
-        more: 'more',
-        moreServices: 'more services',
-        details: 'Region Details',
-        ctaTitle: 'Get Service in Your Region',
-        ctaDescription: 'Wherever you are, our expert team is ready to provide fast and reliable service from the nearest point.',
-        contactNow: 'Contact Now',
-        viewAllServices: 'View All Services'
-      },
-      // Regions
-      regions: {
-        title: 'Our Service Regions',
-        subtitle: 'We provide your industrial inspection and testing services from the nearest region with our professional team through our wide service network throughout Turkey.',
-        cities: 'Cities Served',
-        services: 'Services Offered',
-        more: 'more',
-        moreServices: 'more services',
-        details: 'Region Details',
-        ctaTitle: 'Get Service in Your Region',
-        ctaDescription: 'Wherever you are, our expert team is ready to provide fast and reliable service from the nearest point.',
-        contactNow: 'Contact Now',
-        viewAllServices: 'View All Services'
+        customers: 'Customers'
       },
       // References
       references: {
@@ -278,73 +145,26 @@ const resources = {
         experience: 'Years Experience',
         ctaText: 'Would you like to benefit from our reliable services too?'
       },
-      // Services
-      services: {
-        title: 'Our Services',
-        subtitle: 'We provide professional services with 25+ years of experience in industrial inspection and testing in our TSE and TÜRKAK accredited laboratory.',
-        ndt: {
-          title: 'Non-Destructive Testing (NDT)',
-          description: 'Inspection services in accordance with ASNT SNT-TC-1A and EN ISO 9712 standards',
-          ut: 'Ultrasonic Testing (UT)',
-          rt: 'Radiographic Testing (RT)',
-          pt: 'Liquid Penetrant Testing (PT)',
-          mt: 'Magnetic Particle Testing (MT)',
-          vt: 'Visual Testing (VT)',
-          et: 'Eddy Current Testing (ET)'
-        },
-        welding: {
-          title: 'Welding Inspection',
-          description: 'Welding quality control in accordance with EN ISO 3834 and ASME standards',
-          wps: 'Welding Procedure Specification (WPS/WPQR)',
-          welder: 'Welder Qualification Tests',
-          inspector: 'Welding Inspector Certification',
-          production: 'Production Inspection and Control',
-          analysis: 'Welding Defect Analysis'
-        },
-        pressure: {
-          title: 'Pressure Vessel Inspection',
-          description: 'Inspection services under Pressure Equipment Directive',
-          initial: 'Initial Inspection and Tests',
-          periodic: 'Periodic Inspection (1-3-6 years)',
-          extraordinary: 'Extraordinary Inspection and Repair',
-          safety: 'Safety Report Preparation',
-          hydrostatic: 'Hydrostatic Pressure Test'
-        },
-        lifting: {
-          title: 'Lifting Equipment Inspection',
-          description: 'Lifting equipment control under Occupational Health and Safety legislation',
-          crane: 'Crane Inspection',
-          forklift: 'Forklift Inspection',
-          rope: 'Rope and Chain Control',
-          accessories: 'Lifting Accessories',
-          reports: 'Periodic Control Reports'
-        },
-        material: {
-          title: 'Material Testing',
-          description: 'Determination of mechanical and chemical material properties',
-          tensile: 'Tensile Test',
-          impact: 'Impact Test (Charpy/Izod)',
-          hardness: 'Hardness Measurement',
-          chemical: 'Chemical Analysis',
-          metallography: 'Metallographic Examination'
-        }
+      // Regions
+      regions: {
+        title: 'Our Service Regions',
+        subtitle: 'We provide your industrial inspection and testing services from the nearest region with our professional team through our wide service network throughout Turkey.',
+        cities: 'Cities Served',
+        services: 'Services Offered',
+        more: 'more',
+        moreServices: 'more services',
+        details: 'Region Details',
+        ctaTitle: 'Get Service in Your Region',
+        ctaDescription: 'Wherever you are, our expert team is ready to provide fast and reliable service from the nearest point.',
+        contactNow: 'Contact Now',
+        viewAllServices: 'View All Services'
       },
       // Footer
       footer: {
         quickLinks: 'Quick Links',
         privacy: 'Privacy Policy',
         terms: 'Terms of Service',
-        rights: 'All rights reserved.',
-        description: 'We provide reliable solutions with 25+ years of experience in industrial inspection and testing services.',
-        services: 'Services',
-        corporate: 'Corporate',
-        aboutUs: 'About Us',
-        certificates: 'Certificates',
-        quality: 'Quality Policy',
-        careers: 'Careers',
-        contact: 'Contact',
-        address: 'Atatürk Organized Industrial Zone 10003 Street No:5 Izmir',
-        rights: 'EMIC Inspection and Testing Services. All rights reserved.'
+        rights: 'All rights reserved.'
       }
     }
   }
