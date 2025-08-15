@@ -169,6 +169,11 @@ const LoginPage: React.FC = () => {
           {/* Additional Links */}
           <div className="mt-6 pt-6 border-t border-gray-100">
             <div className="text-center space-y-2">
+              <p className="text-sm text-gray-600">
+                <Link to="/" className="text-blue-600 hover:text-blue-700 font-medium">
+                  ← Ana Sayfaya Dön
+                </Link>
+              </p>
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                 <h4 className="font-semibold text-blue-900 mb-2">Demo Giriş Bilgileri</h4>
                 <div className="text-sm text-blue-800 space-y-1">
@@ -178,8 +183,8 @@ const LoginPage: React.FC = () => {
               </div>
               <p className="text-sm text-gray-600">
                 Hesabınız yok mu?{' '}
-                <Link to="/contact" className="text-blue-600 hover:text-blue-700 font-medium">
-                  İletişime geçin
+                <Link to="/register" className="text-blue-600 hover:text-blue-700 font-medium">
+                  Hesap oluşturun
                 </Link>
               </p>
               <p className="text-sm text-gray-600">

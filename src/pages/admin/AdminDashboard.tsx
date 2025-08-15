@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { useOrganizations } from '../../hooks/useOrganizations';
-import { useProjects } from '../../hooks/useProjects';
-import { useDocuments } from '../../hooks/useDocuments';
 import AdminChatPanel from '../../components/AdminChatPanel';
 import { 
   CogIcon,
@@ -26,9 +23,11 @@ import {
 
 const AdminDashboard: React.FC = () => {
   const { user, profile, signOut } = useAuth();
-  const { organizations } = useOrganizations();
-  const { projects } = useProjects();
-  const { documents } = useDocuments();
+  
+  // Demo data for stats
+  const organizations = [];
+  const projects = [];
+  const documents = [];
 
   const handleLogout = async () => {
     await signOut();
@@ -168,6 +167,13 @@ const AdminDashboard: React.FC = () => {
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Hızlı İşlemler</h3>
               <div className="space-y-3">
+                <Link
+                  to="/admin/users"
+                  className="flex items-center space-x-3 p-3 bg-orange-50 border border-orange-200 rounded-lg hover:bg-orange-100 transition-colors"
+                >
+                  <UsersIcon className="w-5 h-5 text-orange-600" />
+                  <span className="text-orange-800 font-medium">Yeni Admin Kullanıcı</span>
+                </Link>
                 <Link
                   to="/admin/content"
                   className="flex items-center space-x-3 p-3 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors"

@@ -9,6 +9,7 @@ import LaboratoryPage from './pages/LaboratoryPage';
 import DocumentsPage from './pages/DocumentsPage';
 import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 import PortalPage from './pages/PortalPage';
 import ProfilePage from './pages/ProfilePage';
 
@@ -77,6 +78,7 @@ const App: React.FC = () => {
         <Route path="/documents" element={<Layout><DocumentsPage /></Layout>} />
         <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
 
         {/* Protected Routes */}
         <Route 

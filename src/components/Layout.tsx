@@ -38,24 +38,20 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {/* Top Bar */}
         <div className="bg-blue-900 text-white py-2">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center text-sm">
-              <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-2">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-sm space-y-2 sm:space-y-0">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-6">
+                <div className="flex items-center space-x-2 text-xs sm:text-sm">
                   <Phone className="w-4 h-4" />
-                  <span>{settings.phone}</span>
+                  <span className="whitespace-nowrap">{settings.phone}</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 text-xs sm:text-sm">
                   <Mail className="w-4 h-4" />
-                  <span>{settings.email}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Clock className="w-4 h-4" />
-                  <span>{getText(settings.workingHours || '', settings.workingHoursEn || '')}</span>
+                  <span className="whitespace-nowrap">{settings.email}</span>
                 </div>
               </div>
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2 sm:space-x-4">
                 <LanguageSwitcher />
-                <div className="flex items-center space-x-2">
+                <div className="hidden sm:flex items-center space-x-2">
                   {settings.socialMedia.linkedin && (
                     <a href={settings.socialMedia.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors">
                       <Linkedin className="w-4 h-4" />
@@ -89,49 +85,55 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
         {/* Main Header */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 space-y-4 sm:space-y-0">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0">
               <Link to="/" className="flex items-center space-x-3">
                 <img 
                   src={settings.logo} 
                   alt={settings.logoAlt}
-                  className="h-12 w-auto object-contain"
+                  className="h-10 sm:h-12 w-auto object-contain"
                 />
               </Link>
-              <div className="ml-4">
-                <p className="text-sm text-gray-600">
+              <div className="sm:ml-4">
+                <p className="text-xs sm:text-sm text-gray-600">
                   {getText(settings.tagline || '', settings.taglineEn || '')}
                 </p>
               </div>
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
               {navigation.map((item) => (
                 <Link
                   key={item.href}
                   to={item.href}
-                  className={`text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
+                  className={`text-gray-700 hover:text-blue-600 px-2 lg:px-3 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
                     location.pathname === item.href ? 'text-blue-600 bg-blue-50' : ''
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2 lg:space-x-4">
                 <LanguageSwitcher />
-                <div className="flex flex-col space-y-2">
+                <div className="flex flex-col lg:flex-row space-y-1 lg:space-y-0 lg:space-x-2">
                   <button
                     onClick={() => setIsQuoteModalOpen(true)}
-                    className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors text-sm font-medium whitespace-nowrap"
+                    className="bg-blue-600 text-white px-3 py-1.5 rounded-md hover:bg-blue-700 transition-colors text-xs font-medium whitespace-nowrap"
                   >
                     Teklif Al
                   </button>
                   <Link
                     to="/login"
-                    className="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors text-sm font-medium whitespace-nowrap"
+                    className="bg-gray-600 text-white px-3 py-1.5 rounded-md hover:bg-gray-700 transition-colors text-xs font-medium whitespace-nowrap"
                   >
-                    Giriş Yap
+                    {t('nav.login')}
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="bg-green-600 text-white px-3 py-1.5 rounded-md hover:bg-green-700 transition-colors text-xs font-medium whitespace-nowrap"
+                  >
+                    Kayıt Ol
                   </Link>
                 </div>
               </div>
@@ -183,6 +185,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Giriş Yap
+              </Link>
+              <Link
+                to="/register"
+                className="block px-3 py-2 rounded-md text-base font-medium bg-green-600 text-white hover:bg-green-700 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Kayıt Ol
               </Link>
             </div>
           </div>

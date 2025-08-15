@@ -118,26 +118,29 @@ export function useCustomerAuth() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // Demo customers
+  const demoCustomers = [
+    {
+      id: '1',
+      email: 'demo@abc.com',
+      password_hash: 'demo123',
+      company_name: 'ABC Petrokimya A.Ş.',
+      contact_person: 'Ahmet Yılmaz',
+      phone: '+90 532 123 45 67',
+      organization_id: '1',
+      is_active: true,
+      created_at: '2024-01-01T10:00:00Z',
+      updated_at: '2024-01-01T10:00:00Z'
+    }
+  ];
+
   useEffect(() => {
-    const customerId = localStorage.getItem('currentCustomerId');
+    const customerId = localStorage.getItem('demo_customer_session');
     if (customerId) {
-      const fetchCustomer = async () => {
-        try {
-          const { data, error } = await customerService.getCustomerById(customerId);
-          if (error) {
-            setError(error.message);
-            localStorage.removeItem('currentCustomerId');
-          } else {
-            setCurrentCustomer(data);
-          }
-        } catch (err: any) {
-          setError(err.message);
-          localStorage.removeItem('currentCustomerId');
-        } finally {
-          setLoading(false);
-        }
-      };
-      fetchCustomer();
+      const customer = demoCustomers.find(c => c.id === customerId);
+      if (customer) {
+        setCurrentCustomer(customer);
+      }
     } else {
       setLoading(false);
     }
@@ -148,24 +151,15 @@ export function useCustomerAuth() {
       setLoading(true);
       setError(null);
 
-      // Get customer by email
-      const { data: customer, error } = await customerService.getCustomerByEmail(email);
+      // Demo customer authentication
+      const customer = demoCustomers.find(c => c.email === email && c.password_hash === password);
       
-      if (error || !customer) {
+      if (!customer) {
         setError('Geçersiz email veya şifre');
         return { success: false, error: 'Geçersiz email veya şifre' };
       }
 
-      // In a real app, you would verify the password hash here
-      // For demo purposes, we'll use simple password comparison
-      const isPasswordValid = customer.password_hash.includes(password);
-      
-      if (!isPasswordValid) {
-        setError('Geçersiz email veya şifre');
-        return { success: false, error: 'Geçersiz email veya şifre' };
-      }
-
-      localStorage.setItem('currentCustomerId', customer.id);
+      localStorage.setItem('demo_customer_session', customer.id);
       setCurrentCustomer(customer);
       return { success: true };
     } catch (err: any) {
@@ -177,7 +171,7 @@ export function useCustomerAuth() {
   };
 
   const logout = () => {
-    localStorage.removeItem('currentCustomerId');
+    localStorage.removeItem('demo_customer_session');
     setCurrentCustomer(null);
     setError(null);
   };
