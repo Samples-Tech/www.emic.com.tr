@@ -265,7 +265,10 @@ const ServiceRegionsPage: React.FC = () => {
                 <input
                   type="text"
                   value={newRegion.cities?.join(', ') || ''}
-                  onChange={(e) => handleArrayInput('cities', e.target.value)}
+                  onChange={(e) => setNewRegion(prev => ({ 
+                    ...prev, 
+                    cities: e.target.value.split(',').map(item => item.trim()).filter(item => item)
+                  }))}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="İstanbul, Ankara, İzmir"
                 />
@@ -277,7 +280,10 @@ const ServiceRegionsPage: React.FC = () => {
                 <input
                   type="text"
                   value={newRegion.citiesEn?.join(', ') || ''}
-                  onChange={(e) => handleArrayInput('citiesEn', e.target.value)}
+                  onChange={(e) => setNewRegion(prev => ({ 
+                    ...prev, 
+                    citiesEn: e.target.value.split(',').map(item => item.trim()).filter(item => item)
+                  }))}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="Istanbul, Ankara, Izmir"
                 />
@@ -292,7 +298,10 @@ const ServiceRegionsPage: React.FC = () => {
                 <input
                   type="text"
                   value={newRegion.services?.join(', ') || ''}
-                  onChange={(e) => handleArrayInput('services', e.target.value)}
+                  onChange={(e) => setNewRegion(prev => ({ 
+                    ...prev, 
+                    services: e.target.value.split(',').map(item => item.trim()).filter(item => item)
+                  }))}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="NDT Muayene, Kaynak Kontrolü, Basınçlı Kap"
                 />
@@ -304,7 +313,10 @@ const ServiceRegionsPage: React.FC = () => {
                 <input
                   type="text"
                   value={newRegion.servicesEn?.join(', ') || ''}
-                  onChange={(e) => handleArrayInput('servicesEn', e.target.value)}
+                  onChange={(e) => setNewRegion(prev => ({ 
+                    ...prev, 
+                    servicesEn: e.target.value.split(',').map(item => item.trim()).filter(item => item)
+                  }))}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="NDT Inspection, Welding Control, Pressure Vessel"
                 />
@@ -468,7 +480,10 @@ const ServiceRegionsPage: React.FC = () => {
                     <input
                       type="text"
                       value={editingRegion.cities?.join(', ') || ''}
-                      onChange={(e) => handleArrayInput('cities', e.target.value)}
+                      onChange={(e) => setEditingRegion(prev => ({ 
+                        ...prev, 
+                        cities: e.target.value.split(',').map(item => item.trim()).filter(item => item)
+                      }))}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     />
                   </div>
@@ -479,7 +494,10 @@ const ServiceRegionsPage: React.FC = () => {
                     <input
                       type="text"
                       value={editingRegion.services?.join(', ') || ''}
-                      onChange={(e) => handleArrayInput('services', e.target.value)}
+                      onChange={(e) => setEditingRegion(prev => ({ 
+                        ...prev, 
+                        services: e.target.value.split(',').map(item => item.trim()).filter(item => item)
+                      }))}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     />
                   </div>

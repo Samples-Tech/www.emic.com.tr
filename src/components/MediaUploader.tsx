@@ -59,6 +59,17 @@ const MediaUploader: React.FC<MediaUploaderProps> = ({
     Array.from(files).forEach(file => {
       if (file.size <= maxSizeBytes) {
         validFiles.push(file);
+        
+        // For image files, create preview URLs
+        if (file.type.startsWith('image/')) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            const imageUrl = e.target?.result as string;
+            // Store the image URL for preview
+            console.log('Image loaded:', file.name, imageUrl.substring(0, 50) + '...');
+          };
+          reader.readAsDataURL(file);
+        }
       } else {
         alert(`${file.name} dosyası çok büyük. Maksimum ${maxSize}MB olmalıdır.`);
       }

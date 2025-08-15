@@ -54,6 +54,23 @@ interface SiteSettings {
     privacyDeclarationVersion: string;
     privacyDeclarationDate: string;
   };
+  stats: {
+    experience: {
+      value: string;
+      labelTr: string;
+      labelEn: string;
+    };
+    projects: {
+      value: string;
+      labelTr: string;
+      labelEn: string;
+    };
+    customers: {
+      value: string;
+      labelTr: string;
+      labelEn: string;
+    };
+  };
   references: Reference[];
   serviceRegions: ServiceRegion[];
   specialDays: SpecialDay[];
@@ -259,6 +276,23 @@ const defaultSettings: SiteSettings = {
     privacyDeclarationUrl: '/documents/gizlilik-tarafsizlik-beyannamesi-imzali.pdf',
     privacyDeclarationVersion: '2.1',
     privacyDeclarationDate: 'Ocak 2024'
+  },
+  stats: {
+    experience: {
+      value: '25+',
+      labelTr: 'Yıl Deneyim',
+      labelEn: 'Years Experience'
+    },
+    projects: {
+      value: '500+',
+      labelTr: 'Proje',
+      labelEn: 'Projects'
+    },
+    customers: {
+      value: '100+',
+      labelTr: 'Müşteri',
+      labelEn: 'Customers'
+    }
   },
   references: [
     {
@@ -825,7 +859,7 @@ class ContentStore {
 
   // Service Region methods
   getServiceRegions(status: 'active' | 'inactive' | 'all' = 'active'): ServiceRegion[] {
-    let filtered = this.serviceRegions;
+    let filtered = this.settings.serviceRegions || [];
     
     if (status !== 'all') {
       filtered = filtered.filter(region => region.status === status);
@@ -835,7 +869,7 @@ class ContentStore {
   }
 
   getServiceRegionById(id: string): ServiceRegion | undefined {
-    return this.serviceRegions.find(region => region.id === id);
+    return (this.settings.serviceRegions || []).find(region => region.id === id);
   }
 
   addServiceRegion(region: Omit<ServiceRegion, 'id' | 'createdAt' | 'updatedAt'>): ServiceRegion {
@@ -846,30 +880,37 @@ class ContentStore {
       updatedAt: new Date().toISOString()
     };
     
-    this.serviceRegions.push(newRegion);
+    if (!this.settings.serviceRegions) {
+      this.settings.serviceRegions = [];
+    }
+    this.settings.serviceRegions.push(newRegion);
     this.saveToStorage();
     return newRegion;
   }
 
   updateServiceRegion(id: string, updates: Partial<ServiceRegion>): ServiceRegion | null {
-    const index = this.serviceRegions.findIndex(region => region.id === id);
+    if (!this.settings.serviceRegions) return null;
+    
+    const index = this.settings.serviceRegions.findIndex(region => region.id === id);
     if (index === -1) return null;
     
-    this.serviceRegions[index] = {
-      ...this.serviceRegions[index],
+    this.settings.serviceRegions[index] = {
+      ...this.settings.serviceRegions[index],
       ...updates,
       updatedAt: new Date().toISOString()
     };
     
     this.saveToStorage();
-    return this.serviceRegions[index];
+    return this.settings.serviceRegions[index];
   }
 
   deleteServiceRegion(id: string): boolean {
-    const index = this.serviceRegions.findIndex(region => region.id === id);
+    if (!this.settings.serviceRegions) return false;
+    
+    const index = this.settings.serviceRegions.findIndex(region => region.id === id);
     if (index === -1) return false;
     
-    this.serviceRegions.splice(index, 1);
+    this.settings.serviceRegions.splice(index, 1);
     this.saveToStorage();
     return true;
   }

@@ -48,7 +48,24 @@ const ServiceRegionsSection: React.FC = () => {
   }
 
   if (regions.length === 0) {
-    return null; // Don't show section if no regions
+    return (
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {t('regions.title')}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {t('regions.subtitle')}
+            </p>
+          </div>
+          <div className="text-center py-12">
+            <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+            <p className="text-gray-600">Henüz hizmet bölgesi eklenmemiş.</p>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (

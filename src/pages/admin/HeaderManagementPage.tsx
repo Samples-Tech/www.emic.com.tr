@@ -48,12 +48,15 @@ const HeaderManagementPage: React.FC = () => {
   const handleLogoUpload = (files: FileList) => {
     const file = files[0];
     if (file && file.type.startsWith('image/')) {
-      // Create a blob URL for the uploaded file
-      const logoUrl = URL.createObjectURL(file);
-      handleInputChange('logo', logoUrl);
-      setShowUploader(false);
+      // Create a data URL for the uploaded file
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const logoUrl = e.target?.result as string;
+        handleInputChange('logo', logoUrl);
+        setShowUploader(false);
+      };
+      reader.readAsDataURL(file);
       
-      // In a real application, you would upload to a server here
       console.log('Logo uploaded:', file.name);
     }
   };

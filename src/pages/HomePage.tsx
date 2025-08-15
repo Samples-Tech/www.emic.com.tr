@@ -83,16 +83,22 @@ const HomePage: React.FC = () => {
               
               <div className="flex items-center space-x-8 pt-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold">25+</div>
-                  <div className="text-blue-200 text-sm">{t('home.yearsExperience')}</div>
+                  <div className="text-3xl font-bold">{settings.stats?.experience?.value || '25+'}</div>
+                  <div className="text-blue-200 text-sm">
+                    {i18n.language === 'en' ? settings.stats?.experience?.labelEn : settings.stats?.experience?.labelTr}
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold">500+</div>
-                  <div className="text-blue-200 text-sm">{t('home.projects')}</div>
+                  <div className="text-3xl font-bold">{settings.stats?.projects?.value || '500+'}</div>
+                  <div className="text-blue-200 text-sm">
+                    {i18n.language === 'en' ? settings.stats?.projects?.labelEn : settings.stats?.projects?.labelTr}
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold">100+</div>
-                  <div className="text-blue-200 text-sm">{t('home.customers')}</div>
+                  <div className="text-3xl font-bold">{settings.stats?.customers?.value || '100+'}</div>
+                  <div className="text-blue-200 text-sm">
+                    {i18n.language === 'en' ? settings.stats?.customers?.labelEn : settings.stats?.customers?.labelTr}
+                  </div>
                 </div>
               </div>
             </div>
@@ -158,8 +164,8 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Service Regions Section */}
-      <ServiceRegionsSection />
+     {/* Service Regions Section */}
+     <ServiceRegionsSection />
 
       {/* Live Chat Component */}
       <LiveChat />

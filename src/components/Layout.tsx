@@ -96,7 +96,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </Link>
               <div className="sm:ml-4">
                 <p className="text-xs sm:text-sm text-gray-600">
-                  {getText(settings.tagline || '', settings.taglineEn || '')}
+                  {getText(settings.tagline || 'Muayene ve Test Hizmetleri', settings.taglineEn || 'Inspection and Testing Services')}
                 </p>
               </div>
             </div>
@@ -142,6 +142,26 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Mobile menu button */}
             <div className="md:hidden flex items-center space-x-2">
               <LanguageSwitcher />
+             <div className="flex items-center space-x-1">
+               <button
+                 onClick={() => setIsQuoteModalOpen(true)}
+                 className="bg-blue-600 text-white px-2 py-1 rounded text-xs font-medium hover:bg-blue-700 transition-colors whitespace-nowrap"
+               >
+                 Teklif Al
+               </button>
+               <Link
+                 to="/login"
+                 className="bg-gray-600 text-white px-2 py-1 rounded text-xs font-medium hover:bg-gray-700 transition-colors whitespace-nowrap"
+               >
+                 Giriş
+               </Link>
+               <Link
+                 to="/register"
+                 className="bg-green-600 text-white px-2 py-1 rounded text-xs font-medium hover:bg-green-700 transition-colors whitespace-nowrap"
+               >
+                 Kayıt
+               </Link>
+             </div>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-700 hover:text-blue-600 p-2"

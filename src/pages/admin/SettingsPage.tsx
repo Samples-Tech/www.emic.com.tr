@@ -12,7 +12,8 @@ import {
   MapPinIcon,
   BuildingOfficeIcon,
   UserIcon,
-  KeyIcon
+  KeyIcon,
+  ArrowUpTrayIcon
 } from '@heroicons/react/24/outline';
 
 const SettingsPage: React.FC = () => {
@@ -46,6 +47,29 @@ const SettingsPage: React.FC = () => {
       current[keys[keys.length - 1]] = value;
       return newSettings;
     });
+  };
+
+  const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file && file.type.startsWith('image/')) {
+      // Check file size (max 2MB)
+      if (file.size > 2 * 1024 * 1024) {
+        alert('Logo dosyası 2MB\'dan küçük olmalıdır.');
+        return;
+      }
+
+      // Create a data URL for the uploaded file
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const logoUrl = event.target?.result as string;
+        handleInputChange('logo', logoUrl);
+      };
+      reader.readAsDataURL(file);
+      
+      console.log('Logo uploaded:', file.name, 'Size:', (file.size / 1024).toFixed(2) + 'KB');
+    } else {
+      alert('Lütfen geçerli bir görsel dosyası seçin (JPG, PNG, SVG).');
+    }
   };
 
   const tabs = [
@@ -106,6 +130,112 @@ const SettingsPage: React.FC = () => {
           {activeTab === 'general' && (
             <div className="space-y-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-6">Genel Ayarlar</h2>
+              
+              {/* Stats Section */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-gray-900">Ana Sayfa İstatistikleri</h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="space-y-3">
+                    <h4 className="text-sm font-medium text-gray-700">Deneyim</h4>
+                    <input
+                      type="text"
+                      value={localSettings.stats?.experience?.value || '25+'}
+                      onChange={(e) => handleInputChange('stats.experience.value', e.target.value)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="25+"
+                    />
+                    <input
+                      type="text"
+                      value={localSettings.stats?.experience?.labelTr || 'Yıl Deneyim'}
+                      onChange={(e) => handleInputChange('stats.experience.labelTr', e.target.value)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                      placeholder="Yıl Deneyim"
+                    />
+                    <input
+                      type="text"
+                      value={localSettings.stats?.experience?.labelEn || 'Years Experience'}
+                      onChange={(e) => handleInputChange('stats.experience.labelEn', e.target.value)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                      placeholder="Years Experience"
+                    />
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <h4 className="text-sm font-medium text-gray-700">Projeler</h4>
+                    <input
+                      type="text"
+                      value={localSettings.stats?.projects?.value || '500+'}
+                      onChange={(e) => handleInputChange('stats.projects.value', e.target.value)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="500+"
+                    />
+                    <input
+                      type="text"
+                      value={localSettings.stats?.projects?.labelTr || 'Proje'}
+                      onChange={(e) => handleInputChange('stats.projects.labelTr', e.target.value)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                      placeholder="Proje"
+                    />
+                    <input
+                      type="text"
+                      value={localSettings.stats?.projects?.labelEn || 'Projects'}
+                      onChange={(e) => handleInputChange('stats.projects.labelEn', e.target.value)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                      placeholder="Projects"
+                    />
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <h4 className="text-sm font-medium text-gray-700">Müşteriler</h4>
+                    <input
+                      type="text"
+                      value={localSettings.stats?.customers?.value || '100+'}
+                      onChange={(e) => handleInputChange('stats.customers.value', e.target.value)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="100+"
+                    />
+                    <input
+                      type="text"
+                      value={localSettings.stats?.customers?.labelTr || 'Müşteri'}
+                      onChange={(e) => handleInputChange('stats.customers.labelTr', e.target.value)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                      placeholder="Müşteri"
+                    />
+                    <input
+                      type="text"
+                      value={localSettings.stats?.customers?.labelEn || 'Customers'}
+                      onChange={(e) => handleInputChange('stats.customers.labelEn', e.target.value)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                      placeholder="Customers"
+                    />
+                  </div>
+                </div>
+                
+                {/* Stats Preview */}
+                <div className="bg-blue-900 text-white p-6 rounded-lg">
+                  <h4 className="text-sm font-medium mb-4">Önizleme:</h4>
+                  <div className="flex items-center space-x-8">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold">{localSettings.stats?.experience?.value || '25+'}</div>
+                      <div className="text-blue-200 text-xs">
+                        {i18n.language === 'en' ? localSettings.stats?.experience?.labelEn : localSettings.stats?.experience?.labelTr}
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold">{localSettings.stats?.projects?.value || '500+'}</div>
+                      <div className="text-blue-200 text-xs">
+                        {i18n.language === 'en' ? localSettings.stats?.projects?.labelEn : localSettings.stats?.projects?.labelTr}
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold">{localSettings.stats?.customers?.value || '100+'}</div>
+                      <div className="text-blue-200 text-xs">
+                        {i18n.language === 'en' ? localSettings.stats?.customers?.labelEn : localSettings.stats?.customers?.labelTr}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -189,14 +319,29 @@ const SettingsPage: React.FC = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Logo URL
                     </label>
-                    <input
-                      type="url"
-                      value={localSettings.logo}
-                      onChange={(e) => handleInputChange('logo', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="https://example.com/logo.png"
-                    />
-                    <p className="text-xs text-gray-500 mt-1">Önerilen boyut: 200x80px</p>
+                    <div className="space-y-3">
+                      <input
+                        type="url"
+                        value={localSettings.logo}
+                        onChange={(e) => handleInputChange('logo', e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="https://example.com/logo.png"
+                      />
+                      <div className="flex items-center space-x-2">
+                        <span className="text-sm text-gray-500">veya</span>
+                        <label className="flex items-center space-x-2 px-3 py-1 text-sm bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors cursor-pointer">
+                          <ArrowUpTrayIcon className="w-4 h-4" />
+                          <span>Bilgisayardan Yükle</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleLogoUpload}
+                            className="hidden"
+                          />
+                        </label>
+                      </div>
+                      <p className="text-xs text-gray-500">Önerilen boyut: 200x80px, Maksimum: 2MB</p>
+                    </div>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -225,6 +370,13 @@ const SettingsPage: React.FC = () => {
                         className="h-20 object-contain"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
+                          const parent = e.currentTarget.parentElement;
+                          if (parent && !parent.querySelector('.error-message')) {
+                            const errorDiv = document.createElement('div');
+                            errorDiv.className = 'text-red-500 text-sm error-message';
+                            errorDiv.textContent = 'Logo yüklenemedi. URL\'yi kontrol edin.';
+                            parent.appendChild(errorDiv);
+                          }
                         }}
                       />
                     </div>
